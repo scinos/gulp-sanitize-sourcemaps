@@ -21,4 +21,4 @@ gulp.task('default', () => {
 ```
 
 
-It will remove duplicated mappings and make sure that there are not duplicated mappings.
+It will clean up the sourcemap and make sure that there are not duplicated mappings.

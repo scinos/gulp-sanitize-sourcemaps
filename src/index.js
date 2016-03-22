@@ -6,6 +6,11 @@ const SourceMapGenerator = sourceMap.SourceMapGenerator;
 
 module.exports = function(options) {
     function clean(file, encoding, callback) {
+        if (file.isNull() || !file.sourceMap) {
+          this.push(file);
+          return callback();
+        }
+
         const consumer = new SourceMapConsumer(file.sourceMap);
         const generator = new sourceMap.SourceMapGenerator({
           file: file.sourceMap.file,
@@ -17,7 +22,7 @@ module.exports = function(options) {
             if (m.originalColumn <= lastColumnByLine[m.originalLine] || 0) return;
             lastColumnByLine[m.originalLine] = m.originalColumn;
             generator.addMapping({
-              source: m.source,
+              source: m.source.replace(RegExp("^" + file.sourceMap.sourceRoot), ""),
               name: m.name,
               original: { line: m.originalLine, column: m.originalColumn },
               generated: { line: m.generatedLine, column: m.generatedColumn }

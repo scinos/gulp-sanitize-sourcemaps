@@ -1,6 +1,6 @@
 {
   "name": "gulp-sanitize-sourcemaps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Clean up sourcemaps making them more friendly to ChormeDevTools",
   "keywords": "sourcemap clean sanitize chrome devtools",
   "homepage": "https://bitbucket.org/scinos/gulp-sanitize-sourcemaps",
@@ -19,6 +19,7 @@
     "vinyl": "^1.1.1"
   },
   "dependencies": {
+    "source-map": "^0.5.6",
     "through2": "^2.0.1"
   },
   "engines": {

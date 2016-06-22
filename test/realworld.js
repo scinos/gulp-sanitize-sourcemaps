@@ -16,7 +16,7 @@ describe("Complex examples from real files", function() {
     it ("ES6 sourcemap", function(done) {
         const originalSourceMap = getSourceMapFor('es6.js');
         utils.withSourceMap(originalSourceMap, (err, sourceMap) => {
-            expect(sourceMap.mappings).to.equal('AAAA,CAAC,EAAC,MAAG,EAAC,GAAG;AACL,QAAI,KAAK,EADG')
+            expect(sourceMap.mappings).to.equal('AAAA,CAAC,EAAC,MAAG,EAAC,GAAG,QAAO;AACZ,QAAI,KAAK;AACZ')
             done()
         })
     })
